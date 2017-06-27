@@ -1,0 +1,123 @@
+class notes:
+
+given:
+    dataset: movie review, 1k + and 1k negative
+
+no code copying, ez pz, but high-level overview is fine.
+
+turn in: any code used to process data, that's not like, included in WEKA.
+
+----
+
+Term Project
+
+DUE DATE: May 8th, by midnight
+
+
+
+You will do an implementation project where you can choose between a default project and a project on a topic of your own interest.
+
+Default Project: Sentiment Classifier
+
+Implement a sentiment analyzer that automatically classifies input data (i.e., product/movie reviews,  tweets, etc.) as either positive or negative. Since we provide training data, it makes sense to use a supervised machine learning approach (you can use Weka, NLTK, and/or any other machine learning platform/toolkit).
+
+Approach:
+
+First, you should produce a baseline system (i.e., a simple, first-stab approach system that you are fairly confident will produce a measurable result). This system should be as simple as possible and should prove the feasibility of your plan. However, as for baselines, its performance does not need to be very high.
+You should conduct a series of experiments which may or may not improve your system. Try to learn from your results and revise your experiments as you go. If you methodically follow a line of reasoning in your experiments, but do not ultimately have a huge improvement over your baseline system, that is actually OK (provided you justify it). Close-to-perfect results are nice, but we are also looking for good methodology in your experimentation.
+
+The idea is to start with the baseline system and find new good/informative features to improve it. So, at the end, we would like to se a performant system. However, as said before, we are more interested in the research process / methodology you use to build such a system. 
+
+Project questions:
+
+Here are some questions intended to guide you in this process:
+
+1) In building the baseline system, what shallow text features make sense for the task as a first-stab approach? (e.g., a language modeling approach is a standard way to tackle this problem, i.e., a bag-of-words approach / a unigram model);
+2) What machine learning models are suitable for conducting sentiment analysis? (i.e., compare 3-4 learning algorithms). Which performs best given your features?  
+3) How would you improve the baseline model? I.e., What text features are most beneficial to the task of sentiment analysis? Experiment with at least 4 different features that go beyond a language modeling representation. 
+4) How does the size of the feature sets you are experimenting with influences the performance of sentiment analysis? Compare the performance of different feature sets under the same feature selection scenario and machine learning algorithm. 
+For instance, you have several options here: 
+a) start with the feature set in the baseline model, and then add new features one at at time (i.e., called the incremental approach). For each new such addition, measure the performance on each of the machine learning models you selected at 3). Which of the machine learning models you chose at 2) works best with your features? 
+
+b) another way is to add all the new features to the baseline model, then compute their performance with a leave-one-out approach (as you did for Hw#3).
+
+For this question you have to compute the performance, then compare and analyze the results. Which is the best combination of features (i.e., best feature set) with which machine learning model and why?
+
+
+Dataset:
+
+For data, there are many resources on this topic. However, for this project we will use the movie review dataset from Cornell: http://www.cs.cornell.edu/people/pabo/movie-review-data/. This is the [polarity dataset v2.0](http://www.cs.cornell.edu/people/pabo/movie-review-data/review_polarity.tar.gz) ( 3.0Mb) (includes [README v2.0](http://www.cs.cornell.edu/people/pabo/movie-review-data/poldata.README.2.0.txt)): 1000 positive and 1000 negative processed reviews, introduced in Pang/Lee ACL 2004. Released June 2004. (look under ‘Sentiment polarity datasets’).
+
+Resources:
+
+Here are some standard sentiment resources that you might want to use to come up with more informative features:
+
+1) a lexicon of “sentiment” organized words, SentiWord Net along with NLTK tools or weka (http://sentiwordnet.isti.cnr.it/ - This page has links to many papers that have used this lexicon).
+
+2) EmoLex: Emotion Lexicon English words and their associations with eight basic emotions (anger, fear, anticipation, trust, surprise, sadness, joy, and disgust) and two sentiments (negative and positive). The annotations were manually done by crowdsourcing. 
+http://saifmohammad.com/WebPages/AccessResource.htm
+Note: You can find this lexicon in the Term Project folder on compass2g. Please do NOT use if outside of this class without authors’ permission!
+
+Suggested papers (they will give you a better idea about the task and feature suggestions): 
+
+Carlo Strapparava , Rada Mihalcea. “Learning to identify emotions in text.” Proceedings of the 2008 ACM symposium on Applied computing, March 16-20, 2008, Fortaleza, Ceara, Brazil. http://www.cse.unt.edu/~rada/papers/strapparava.acm08.pdf
+http://portal.acm.org/citation.cfm?id=1364052&dl=7&coll=GUIDE&CFID=69483601&CFTOKEN=39824501
+
+Yessenov, Kuat, and Sasa Misailovic. “Sentiment Analysis of Movie Review Comments” Massachusetts Institute of Technology, Spring 2009. http://people.csail.mit.edu/kuat/courses/6.863/report.pdf
+
+Kim, Elsa and Sam Gilbert. “Detecting Sadness in 140 Characters: Sentiment Analysis and Mourning Michael Jackson on Twitter” Web Ecology Project, August 2009. http://www.webecologyproject.org/2009/08/detecting-sadness-in-140-characters/
+
+Deliverables:
+
+This is an independent project (i.e., you must work alone although you can engage in design discussions with fellow colleagues — i.e., on possible features, learning models, etc.. ). 
+
+This is what you have to upload into compass2g:
+
+1) all the code you wrote to process the data (i.e., preprocessing code, etc. - outside of Weka or other platform you used) plus a Readme file where you explain what the code does and how to run it.
+
+2) You have to answer to questions 1) - 4) above and explain in a paper report all the steps you took to build the system. Each project report has to follow the following outline/sections:
+
+-  An introduction (where you put the problem into a broader context: why is it important to work on sentiment analysis today, what applications can benefit from it, etc.)
+
+-  Problem definition (what is sentiment analysis and how do you define it in the context of Computational Linguistics: i.e., how do you define the task and what kind of input/output such a system has)
+
+-  Previous work (not comprehensive, but to show you know something about this problem)
+
+-  Approach (what computational approach did you use; what model(s) have you tested; what dataset(s); did you do some data preprocessing? if yes, what and how?; What text representations have you used? What are your features/feature sets you played with?; etc.)
+
+-  Results (analysis of results; metrics used (standard once expected but if you use others, explain them); analysis of results - which feature set + machine learning model performed best for this task and why?)
+
+-  Discussion and Conclusions (what have you learned from this project; what possibilities of improvement are there for this problem and this approach; i.e., if you had to do it again, what would you change?)
+
+ 
+
+Extra-credit:
+
+Students interested in extra-credit will have two options. You can choose both (for full extra-credit) or just one of them. 
+
+
+
+1) Option 1 [ 10 points]:
+
+ - just more detail
+
+Write a more comprehensive Previous Work, and Discussion and Conclusions sections of the report. For previous work, you should identify 3 papers relevant to the project topic and compare and summarize the techniques used and their results. Moreover, you should also prepare a more thorough Discussion and Conclusions section. Thus, in addition to the items listed above for this section, you should present a more detailed discussion of potential improvements (i.e., what linguistic representations are needed for this task? what challenges still remain to be solved and what solution do you suggest?)
+
+
+2) Option 2 [30 points]:
+
+ - try to run baseline and better-improved classifier on a new dataset
+
+Run the baseline (project question 1)) and the improved systems (project question 4)) on a different dataset: Champaign-Urbana Yelp restaurant reviews (a collection of 10391 reviews of restaurants in the Champaign-Urbana area scraped from Yelp by John Hall, a Linguistics Masters student).
+
+Note that this dataset is annotated with a star rating: {1star, 2star, 3star, 4star, 5star}
+
+1star_count = 1172
+2star_count = 1358
+3star_count = 1795
+4star_count = 2947
+5star_count = 3119
+
+You have to compare the results of your systems on the two datasets (the movie reviews and the restaurant reviews). In order to do so, you have to collapse all the reviews with at least 3 and a half stars into positive and the rest into negative target classes.
+
+You have to answer the project questions 1) - 4) again for the new dataset and then compare the results on the two datasets at each step. For instance, which dataset is more challenging for sentiment analysis detection? What features work best for one dataset and not so well for the other? How about the best learning model(s)? 
